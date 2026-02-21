@@ -1,0 +1,49 @@
+ID: Demo_MTA_Project
+_schema-version: '3.1'
+description: Demo MTA Project
+version: 0.0.1
+
+parameters:
+  dep-space: dev
+  xs-uaa-app-name: shoppr_dev
+  app_name: shoppr
+#  deployed_domain: cfapps.eu10.hana.ondemand.com
+  ext_redirecturl:
+    - 'https://453ee863trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://4076c031trial-demo-owkh0m1v-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://91030c29trial-demo-rx56jjzq-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://8d7159b9trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://83295da9trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://9ef69b96trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+ 
+modules:
+ - name: sample.Shop
+   type: html5
+   path: sample.Shop
+   parameters:
+      disk-quota: 512M
+      memory: 512M
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: uaa_Demo_MTA_Project
+    - name: dest_Demo_MTA_Project
+
+resources:
+ - name: uaa_Demo_MTA_Project
+   parameters:
+      path: ./xs-security.json
+      service-plan: application
+      config:
+         xsappname: ${xs-uaa-app-name}
+         oauth2-configuration:
+           redirect-uris: ${ext_redirecturl}
+      service: xsuaa
+   type: org.cloudfoundry.managed-service
+
+ - name: dest_Demo_MTA_Project
+   parameters:
+      service-plan: lite
+      service: destination
+   type: org.cloudfoundry.managed-service
+

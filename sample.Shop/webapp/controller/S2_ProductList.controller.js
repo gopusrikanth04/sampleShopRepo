@@ -42,7 +42,7 @@ sap.ui.define([
 			// Put down worklist table's original value for busy indicator delay,
 			// so it can be restored later on. Busy handling on the table is
 			// taken care of by the table itself.
-			var iOriginalBusyDelay = this._oCatalog.getBusyIndicatorDelay();
+			var iOriginalBusyDelay = this._oCatalog?.getBusyIndicatorDelay();
 
 			this.setModel(oViewModel, "productListView");
 

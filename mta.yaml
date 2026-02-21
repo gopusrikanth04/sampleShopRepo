@@ -14,7 +14,9 @@ parameters:
     - 'https://91030c29trial-demo-rx56jjzq-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
     - 'https://8d7159b9trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
     - 'https://83295da9trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
-    - 'https://9ef69b96trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://f8f0d0e9trial-dev-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://f8f0d0e9trial-qa-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
+    - 'https://f8f0d0e9trial-prod-sample-shop.cfapps.us10-001.hana.ondemand.com/login/callback'
  
 modules:
  - name: sample.Shop

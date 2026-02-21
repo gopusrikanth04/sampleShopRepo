@@ -23,8 +23,6 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-			<!-- the smart filter bar is added later by the controller (S2_ProductList.controller.js) if not running on a phone-->
-			<!-- the count mode on the item binding is set to obtain the $count information for the item collection------->
 			<Table id="catalogTable" class="sapUiForceWidthAuto sapUiResponsiveMargin" width="auto" mode="MultiSelect" updateFinished="onUpdateFinished"
 				items="{path: '/Products', templateShareable: false, sorter: {path: 'Name', descending: false}, groupHeaderFactory: '.createGroupHeader', parameters: {countMode: 'Inline', select: 'StockQuantity,Id,ImageUrl,Name,Description,AverageRating,RatingCount,Price,CurrencyCode,IsFavoriteOfCurrentUser,SupplierName,SubCategoryName,MainCategoryName'}}"
 				growing="true" growingScrollToLoad="true" noDataText="{i18n>xfld.noDataProducts}" selectionChange="onItemSelected">
